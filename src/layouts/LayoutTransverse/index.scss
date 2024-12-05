@@ -1,0 +1,51 @@
+.el-container {
+    width: 100%;
+    height: 100%;
+
+    :deep(.el-aside) {
+        width: auto;
+        background-color: #ffffff;
+        border-right: 1px solid #e4e7ed;
+    }
+}
+.el-scrollbar {
+    height: calc(100% - 55px);
+}
+.layout {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.el-main{
+    height: calc(100% - 55px);
+    // padding: 10px;
+}
+.aside-box {
+    justify-content: space-between;
+    display: flex;
+}
+// .aside-box ul{
+//     display: flex;
+
+// }
+
+.logo {
+    display: flex;
+    align-items: center;
+
+}
+
+.logo-img {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 55px;
+    border-radius: 5px ;
+}
+
+.logo-text {
+    font-size: x-large;
+    font-weight: bolder;
+    text-wrap: nowrap;
+}
+

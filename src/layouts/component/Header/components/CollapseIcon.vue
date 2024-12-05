@@ -1,0 +1,24 @@
+<template>
+    <el-icon class="collapse-icon" @click="changeCollapse">
+        <component :is="globalStore.isCollapse ? 'expand' : 'fold'" />
+    </el-icon>
+</template>
+
+<script setup lang="ts">
+import { useGlobalStore } from '@/stores/useGlobalStore';
+
+
+const globalStore = useGlobalStore();
+const changeCollapse = () => {
+    globalStore.setGlobalstate("isCollapse", !globalStore.isCollapse)
+}
+</script>
+
+<style scoped>
+.collapse-icon {
+    margin-right: 20px;
+    font-size: 22px;
+    color: var(--el-header-text-color);
+    cursor: pointer;
+}
+</style>
