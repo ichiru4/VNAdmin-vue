@@ -16,13 +16,14 @@
 
 <script setup lang="ts">
 import mittBus from '@/utils/mittBus';
+import emmitter from '@/utils/mittBusT';
 import { defineProps, ref, toRaw} from 'vue'
 const props = defineProps<{buttonList:Menu.MenuOption[]}>()
 const searchVal = ref('')   
 const callFunc =(item:Menu.MenuOption)=>{
     const rawItem = toRaw(item);
     rawItem.search = searchVal.value;
-    mittBus.emit("callFunction", rawItem)
+    emmitter.emit("callFunction", rawItem)
 }
 </script>
 

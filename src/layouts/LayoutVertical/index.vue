@@ -41,7 +41,7 @@ const isCollapse = computed(()=>globalStore.isCollapse)
 const accordion = computed(()=>globalStore.accordion)
 const menuList = computed(()=>authStore.showMenuListGet)
 const activeMenu = computed(()=>(route.meta.activeMenu?route.meta.activeMenu:route.path)as string)
-const title = 'Vue Admin'
+const title = 'VN-Admin'
 </script>
 
 <style scoped lang="scss">

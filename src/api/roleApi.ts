@@ -1,6 +1,7 @@
 import { get } from "@/utils/axiosInstance";
 import type { BaseResponse } from "./loginApi"
 export interface RoleResponse {
+    Id: string;
     Name: string;
 }
 export const getAllRoles = async () => {
