@@ -50,7 +50,8 @@ import { getAllRoles, type RoleResponse } from '@/api/roleApi';
 import { computed, onMounted, ref } from 'vue';
 import { assignPermissons, getPermissonsList, getPermissonsListByRoleId, getPermissonsListWithNoButton, type AssignRequest, type permissionList } from '@/api/permissionApi';
 import { ElMessage } from 'element-plus';
-
+import { useMenuStore } from '@/stores/useMenuStore';
+const authStore = useMenuStore();
 const operateRoleId = ref<string | null>(null)
 const roles = ref<RoleResponse[]>();
 const data = ref<permissionList>();
@@ -58,6 +59,7 @@ const data1 = ref<permissionList>();
 const treeRef = ref<any>();
 const refreshBtnDisabled = ref(false);
 const assignBtns = ref<string[]>([]);
+const menu = authStore.authMenuListGet;
 const operate = (roleId: string) => {
     if (roleId === operateRoleId.value) {
     } else {

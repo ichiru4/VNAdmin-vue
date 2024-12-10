@@ -17,12 +17,14 @@ export const initDynamicRouter = async (params: Menu.MenuRequest) => {
     try {
         await authStore.getAuthMenuList(params);
         if (!authStore.authMenuList.length) {
-            ElNotification({
-                title: "无权限访问",
-                message: "当前账号无任何菜单权限，请联系管理员开通",
-                type: "warning",
-                duration: 3000
-            })
+            if (userStore.token) {
+                ElNotification({
+                    title: "无权限访问",
+                    message: "当前账号无任何菜单权限，请联系管理员开通",
+                    type: "warning",
+                    duration: 3000
+                })
+            }
             userStore.setToken("");
             router.replace("/login")
             return Promise.reject("No permission");
@@ -34,13 +36,13 @@ export const initDynamicRouter = async (params: Menu.MenuRequest) => {
             if (item.path && !item.IsButton && item.path != " " && typeof item.path == "string" && item.path != '-') {
                 if (item.path == '/') {
                     item.component = modules["/src/views/home/index.vue"];
-                  } else if (item.path.indexOf('/:id')!== -1) {
-                    item.component = modules["/src/views" + item.path.replace('/:id','') + ".vue"];
-                  } else {
+                } else if (item.path.indexOf('/:id') !== -1) {
+                    item.component = modules["/src/views" + item.path.replace('/:id', '') + ".vue"];
+                } else {
                     item.component = modules["/src/views" + pathToUpperComponent(item.path) + ".vue"];
-                  }
+                }
 
-                  router.addRoute("layout", item as unknown as RouteRecordRaw);
+                router.addRoute("layout", item as unknown as RouteRecordRaw);
             }
         });
 
