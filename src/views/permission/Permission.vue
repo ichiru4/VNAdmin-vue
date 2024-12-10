@@ -61,6 +61,8 @@ const mapToTable = (item: Menu.MenuOption): TableData => ({
     id: item.id,
     name: item.name,
     path: item.path,
+    sort: item.order,   
+    isbutton:item.IsButton,
     component: item.component,
     IsButton: item.IsButton,
 });
@@ -70,6 +72,8 @@ interface TableData {
     id: string
     name: string
     path: string
+    sort: number
+    isbutton: boolean
     component: string | (() => Promise<unknown>) | undefined
     IsButton: boolean
     hasChildren?: boolean

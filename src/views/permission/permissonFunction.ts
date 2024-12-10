@@ -9,6 +9,7 @@ export const addForm = reactive<Permission>({
     IskeepAlive: false,  // 默认不保持活跃
     Func: null,  // 默认没有功能
     OrderSort: 0,  // 默认排序为 0
+    Icon:null,  // 默认图标为空字符串
     IconNew: "",  // 默认图标为空字符串
     Description: "",  // 默认描述为空字符串
     Enabled: true,  // 默认启用
@@ -25,8 +26,7 @@ export const addForm = reactive<Permission>({
     hasChildren: false,  // 默认没有子菜单
     Children: [],  // 默认子菜单数组为空
     Module: null,  // 默认没有模块
-    Pid: "",  // 默认上级 ID 为空字符串
-    Mid: "",  // 默认模块 ID 为空字符串
+    Pid: "0",  // 默认上级 ID 为空字符串
+    Mid: "0",  // 默认模块 ID 为空字符串
     PidArr: [],  // 默认上级 ID 数组为空
-    Id: ""  // 默认菜单 ID 为空字符串
 });

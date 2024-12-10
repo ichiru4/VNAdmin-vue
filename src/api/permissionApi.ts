@@ -18,6 +18,7 @@ export interface Permission {
     IskeepAlive: boolean; // 是否保持活跃
     Func: string | null; // 功能，可能为 null
     OrderSort: number; // 排序
+    Icon: string |null; // 图标
     IconNew: string; // 图标
     Description: string; // 描述
     Enabled: boolean; // 是否启用
@@ -37,7 +38,6 @@ export interface Permission {
     Pid: string; // 上级 ID
     Mid: string; // 模块 ID
     PidArr: string[]; // 上级 ID 数组
-    Id: string; // 菜单 ID
   }
 
 export interface permissionByRole {
@@ -85,6 +85,16 @@ export const assignPermissons = async (data: AssignRequest) => {
     try {
         const response = await post<BaseResponse<any>>('/permission/AssignPermission', data);
 
+        return response
+    } catch (error) {
+        console.log(error);
+        throw new Error('操作失败');
+    }
+}
+
+export const addPermisson = async (data: Permission) => {
+    try {
+        const response = await post<BaseResponse<any>>('/permission/Post', data);
         return response
     } catch (error) {
         console.log(error);
